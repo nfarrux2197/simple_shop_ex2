@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bosh sahifa - Zamonaviy Do'kon</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Zamonaviy Do'kon</div>
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('index') }}" class="active">Bosh sahifa</a></li>                    
+                    <li><a href="{{ url_for('product_list') }}">Mahsulotlar</a></li>
+                    <li><a href="{{ url_for('product_add') }}">Mahsulot qo'shish</a></li>
+                    <li><a href="{{ url_for('contact') }}">Aloqa</a></li>
+                   
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    {% block content %}
+        
+    {% endblock %}
+    
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Zamonaviy Do'kon</h3>
+                    <p>Sifatli mahsulotlar va xizmat ko'rsatish</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Havolalar</h3>
+                    <ul>
+                        <li><a href="{{ url_for('index') }}">Bosh sahifa</a></li>
+                        <li><a href="{{ url_for('product_list') }}">Mahsulotlar</a></li>
+                        <li><a href="{{ url_for('contact') }}">Aloqa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Aloqa</h3>
+                    <p>Tel: +998 90 123 45 67</p>
+                    <p>Email: info@dokon.uz</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Zamonaviy Do'kon. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+
+

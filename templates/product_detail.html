@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+    <!-- Product Detail Section -->
+    <section class="product-detail-section">
+        <div class="container">
+            <a href="{{ url_for('product_list') }}" class="back-link">← Mahsulotlarga qaytish</a>
+            
+            <div class="product-detail">
+                <div class="product-detail-image">
+                    <img src="{{ url_for('static', filename=product.image) }}" alt="Mahsulot" class="product-detail-img">
+                </div>
+                
+                <div class="product-detail-info">
+                    <h1 id="productName"> {{ product.name }} </h1>
+                    <p class="price-large" id="productPrice"> {{ product.price }}  so'm</p>
+                    
+                    <div class="product-description">
+                        <h3>Mahsulot haqida</h3>
+                        <p id="productDesc">
+                            {{ product.description }}
+                        </p>
+                    </div>
+
+
+                    <div class="product-specs">
+                        <h3>Texnik xususiyatlar</h3>
+                        <table class="specs-table">
+                            <tr>
+                                <td><strong>Brend:</strong></td>
+                                <td id="brand"> {{ product.brand }} </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mahsulot soni:</strong></td>
+                                <td id="model"> {{ product.product_count }} ta</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Similar Products -->
+            <div class="similar-products">
+                <h2>O'xshash mahsulotlar</h2>
+                <div class="products-grid">
+                    {% if popular_products %}
+                        {% for pop_product in popular_products %}
+                            <div class="product-card">
+                                <div class="product-image">
+                                    <img src="{{ url_for('static', filename=pop_product.image) }}" alt="Mahsulot" class="product-img">
+                                </div>
+                                <div class="product-info">
+                                    <h3> {{ pop_product.name }} </h3>
+                                    <p class="product-desc"> {{ pop_product.description }} </p>
+                                    <p class="price">{{ pop_product.price }} so'm</p>
+                                    <a href="{{ url_for('product_detail', id=pop_product.id) }}" class="btn btn-secondary">Batafsil</a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p class="product-desc">O'xshash mahsulot yo'q</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

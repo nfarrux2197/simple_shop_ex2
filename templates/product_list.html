@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Barcha mahsulotlar</h1>
+            <p>Bizning keng assortimentimiz bilan tanishing</p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-grid">
+                {% if products %}
+                    {% for product in products %}
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="{{ url_for('static', filename=product.image) }}" alt="Mahsulot rasmi" class="product-img">
+                            </div>
+                            <div class="product-info">
+                                <h3> {{ product.name }} </h3>
+                                <p class="product-desc"> {{ product.description }} </p>
+                                <p class="price">{{ product.price }} so'm</p>
+                                <a href="{{ url_for('product_detail', id=product.id) }}" class="btn btn-secondary">Batafsil</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="product-desc">Hozircha mahsulot yo'q</p>
+                {% endif %}
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

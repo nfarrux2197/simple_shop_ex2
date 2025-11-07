@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Yangi mahsulot qo'shish</h1>
+            <p>Mahsulot ma'lumotlarini to'ldiring</p>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section">
+        <div class="container">
+            <div class="form-container">
+                <form action="{{ url_for('product_add') }}" method="POST" id="{{ url_for('product_add') }}" class="product-form">
+                    <div class="form-group">
+                        <label for="productName">Mahsulot nomi *</label>
+                        <input type="text" id="productName" name="name" required placeholder="Masalan: Smartphone Pro">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="price">Narxi (so'm) *</label>
+                            <input type="number" id="price" name="price" required placeholder="0">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="stock">Omborda *</label>
+                            <input type="number" id="stock" name="product_count" required placeholder="0">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="brand">Brend</label>
+                        <input type="text" id="brand" name="brend" placeholder="Masalan: Samsung, Apple, LG">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Ta'rif *</label>
+                        <textarea id="description" name="description" rows="5" required placeholder="Mahsulot haqida batafsil ma'lumot kiriting..."></textarea>
+                    </div>
+                   
+
+                    <div class="form-group">
+                        <label for="productImage">Mahsulot rasmi *</label>
+                        <input type="file" id="productImage" name="image" accept="image/*" required>
+                        <small>Rasm formatlar: JPG, PNG, WebP (maksimal 5MB)</small>
+                        <div id="imagePreview" class="image-preview"></div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Mahsulot qo'shish</button>
+                        <button type="reset" class="btn btn-outline">Tozalash</button>
+                    </div>
+                </form>
+
+                <div id="successMessage" class="success-message" style="display: none;">
+                    <p>✓ Mahsulot muvaffaqiyatli qo'shildi!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

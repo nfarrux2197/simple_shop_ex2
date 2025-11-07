@@ -1,0 +1,6 @@
+my_venv/
+.my_venv/
+
+instance/
+*.db
+*.sqlite3

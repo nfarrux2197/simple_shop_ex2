@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Biz bilan bog'laning</h1>
+            <p>Savollaringiz bormi? Biz har doim yordam berishga tayyormiz</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-wrapper">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h2>Aloqa ma'lumotlari</h2>
+                    <p>Biz bilan quyidagi usullar orqali bog'laning:</p>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h3>Telefon</h3>
+                            <p>+998 90 123 45 67</p>
+                            <p>+998 71 234 56 78</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>info@dokon.uz</p>
+                            <p>support@dokon.uz</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h3>Manzil</h3>
+                            <p>Toshkent sh., Chilonzor tumani</p>
+                            <p>Kichik halqa yo'li, 12-uy</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">⏰</div>
+                        <div class="contact-details">
+                            <h3>Ish vaqti</h3>
+                            <p>Dushanba - Juma: 9:00 - 18:00</p>
+                            <p>Shanba: 10:00 - 16:00</p>
+                            <p>Yakshanba: Dam olish</p>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <h3>Ijtimoiy tarmoqlar</h3>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon">📘 Facebook</a>
+                            <a href="#" class="social-icon">📷 Instagram</a>
+                            <a href="#" class="social-icon">✈️ Telegram</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <h2>Xabar yuborish</h2>
+                    <form id="{{ url_for('contact') }}" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Ismingiz *</label>
+                            <input type="text" id="name" name="fullname" required placeholder="To'liq ismingizni kiriting">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="example@email.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Xabar *</label>
+                            <textarea id="message" name="message" rows="6" required placeholder="Xabaringizni shu yerga yozing..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large">Xabar yuborish</button>
+                    </form>
+
+                    <div id="formSuccessMessage" class="success-message" style="display: none;">
+                        <p>✓ Xabaringiz muvaffaqiyatli yuborildi! Tez orada siz bilan bog'lanamiz.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <h2 class="section-title">Bizning manzil</h2>
+            <div class="map-placeholder">
+                <p>🗺️ Xarita</p>
+                <p>Toshkent sh., Chilonzor tumani, Kichik halqa yo'li, 12-uy</p>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
